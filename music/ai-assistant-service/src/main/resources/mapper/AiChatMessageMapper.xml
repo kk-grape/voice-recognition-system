@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.music.ai.mapper.AiChatMessageMapper">
+
+    <resultMap id="BaseResultMap" type="com.music.ai.domain.AiChatMessage">
+        <id column="id" property="id"/>
+        <result column="session_id" property="sessionId"/>
+        <result column="role" property="role"/>
+        <result column="content" property="content"/>
+        <result column="ai_skill" property="aiSkill"/>
+        <result column="sentiment_label" property="sentimentLabel"/>
+        <result column="input_tokens" property="inputTokens"/>
+        <result column="output_tokens" property="outputTokens"/>
+        <result column="guidance_action" property="guidanceAction"/>
+        <result column="guidance_target" property="guidanceTarget"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.music.ai.domain.AiChatMessage">
+        INSERT INTO ai_chat_message (id, session_id, role, content, ai_skill, sentiment_label, input_tokens, output_tokens, guidance_action, guidance_target, created_at)
+        VALUES (#{id}, #{sessionId}, #{role}, #{content}, #{aiSkill}, #{sentimentLabel}, #{inputTokens}, #{outputTokens}, #{guidanceAction}, #{guidanceTarget}, #{createdAt})
+    </insert>
+
+    <select id="selectBySessionId" resultMap="BaseResultMap">
+        SELECT * FROM ai_chat_message WHERE session_id = #{sessionId} ORDER BY created_at ASC
+    </select>
+
+    <select id="selectBySessionUuid" resultMap="BaseResultMap">
+        SELECT m.* FROM ai_chat_message m
+        INNER JOIN ai_chat_session s ON m.session_id = s.id
+        WHERE s.session_uuid = #{sessionUuid}
+        ORDER BY m.created_at ASC
+    </select>
+
+</mapper>

@@ -1,0 +1,69 @@
+server:
+  port: 18001
+
+feign:
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
+
+spring:
+  application:
+    name: admin-service
+  config:
+    import: "optional:nacos:admin-service.yml"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: music
+      config:
+        server-addr: localhost:8848
+        namespace: music
+        file-extension: yml
+    sentinel:
+      transport:
+        # Sentinel 控制台地址，请根据实际情况修改
+        dashboard: localhost:8090
+        # 客户端与控制台通信的本地端口，如被占用会自动+1
+        port: 8719
+      http-method-specify: true # 开启请求方式前缀
+  datasource:
+    url: jdbc:mysql://localhost:3306/kk-admin?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: your-mysql-password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+  main:
+    allow-circular-references: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+logging:
+  level:
+    com.music.nls.admin.mapper: trace
+    # Feign 日志记录器配置（配合 DefaultFeignConfig 使用）
+    FeignRequestLogger: info
+
+seata:
+  tx-service-group: music-tx-group
+  service:
+    vgroup-mapping:
+      music-tx-group: default
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: music
+      group: SEATA_GROUP
+      application: seata-server
+  config:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: music
+      group: SEATA_GROUP
+  data-source-proxy-mode: AT

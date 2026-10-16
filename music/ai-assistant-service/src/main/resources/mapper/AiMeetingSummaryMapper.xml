@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.music.ai.mapper.AiMeetingSummaryMapper">
+
+    <resultMap id="BaseResultMap" type="com.music.ai.domain.AiMeetingSummary">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="asr_session_id" property="asrSessionId"/>
+        <result column="summary_source" property="summarySource"/>
+        <result column="summary_target" property="summaryTarget"/>
+        <result column="key_points" property="keyPoints"/>
+        <result column="action_items" property="actionItems"/>
+        <result column="decisions" property="decisions"/>
+        <result column="keywords" property="keywords"/>
+        <result column="subtitle_count" property="subtitleCount"/>
+        <result column="total_tokens" property="totalTokens"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.music.ai.domain.AiMeetingSummary">
+        INSERT INTO ai_meeting_summary (id, user_id, asr_session_id, summary_source, summary_target, key_points, action_items, decisions, keywords, subtitle_count, total_tokens, created_at, updated_at)
+        VALUES (#{id}, #{userId}, #{asrSessionId}, #{summarySource}, #{summaryTarget}, #{keyPoints}, #{actionItems}, #{decisions}, #{keywords}, #{subtitleCount}, #{totalTokens}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <select id="selectByAsrSessionId" resultMap="BaseResultMap">
+        SELECT * FROM ai_meeting_summary WHERE asr_session_id = #{asrSessionId}
+    </select>
+
+    <update id="updateSummary">
+        UPDATE ai_meeting_summary
+        SET summary_source = #{summarySource},
+            summary_target = #{summaryTarget},
+            key_points = #{keyPoints},
+            action_items = #{actionItems},
+            decisions = #{decisions},
+            keywords = #{keywords},
+            total_tokens = #{totalTokens},
+            updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+</mapper>

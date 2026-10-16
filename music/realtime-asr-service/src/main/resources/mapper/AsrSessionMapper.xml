@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.music.asr.mapper.AsrSessionMapper">
+
+    <resultMap id="BaseResultMap" type="com.music.asr.domain.AsrSession">
+        <id column="id" property="id"/>
+        <result column="ws_session_id" property="wsSessionId"/>
+        <result column="member_id" property="memberId"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="duration_seconds" property="durationSeconds"/>
+        <result column="status" property="status"/>
+        <result column="source_lang" property="sourceLang"/>
+        <result column="source_lang_desc" property="sourceLangDesc"/>
+        <result column="target_lang" property="targetLang"/>
+        <result column="target_lang_desc" property="targetLangDesc"/>
+        <result column="sample_rate" property="sampleRate"/>
+        <result column="format" property="format"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, ws_session_id, member_id, start_time, end_time, duration_seconds,
+        status, source_lang, source_lang_desc, target_lang, target_lang_desc, sample_rate, format, created_at, updated_at
+    </sql>
+
+    <insert id="insert" parameterType="com.music.asr.domain.AsrSession">
+        insert into asr_session (
+            id, ws_session_id, member_id, start_time, status, created_at, updated_at
+        ) values (
+            #{id}, #{wsSessionId}, #{memberId}, #{startTime}, #{status}, #{createdAt}, #{updatedAt}
+        )
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.music.asr.domain.AsrSession">
+        update asr_session
+        set
+            ws_session_id = #{wsSessionId},
+            member_id = #{memberId},
+            start_time = #{startTime},
+            end_time = #{endTime},
+            duration_seconds = #{durationSeconds},
+            status = #{status},
+            source_lang = #{sourceLang},
+            source_lang_desc = #{sourceLangDesc},
+            target_lang = #{targetLang},
+            target_lang_desc = #{targetLangDesc},
+            sample_rate = #{sampleRate},
+            format = #{format},
+            created_at = #{createdAt},
+            updated_at = #{updatedAt}
+        where id = #{id}
+    </update>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from asr_session
+        where id = #{id}
+    </select>
+
+    <select id="selectByMemberId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from asr_session
+        where member_id = #{memberId}
+        order by start_time desc
+    </select>
+
+    <select id="countAll" resultType="java.lang.Long">
+        select count(*) from asr_session
+    </select>
+
+    <!-- 按状态统计会话数量 -->
+    <select id="countByStatus" resultType="com.music.asr.admin.resp.SessionCountResp">
+        select status, count(*) as count
+        from asr_session
+        group by status
+    </select>
+
+    <!-- 条件查询会话列表 -->
+    <select id="selectListByCondition" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from asr_session
+        where 1=1
+        <if test="memberId != null">
+            and member_id = #{memberId}
+        </if>
+        <if test="status != null and status != ''">
+            and status = #{status}
+        </if>
+        <if test="sourceLang != null and sourceLang != ''">
+            and source_lang = #{sourceLang}
+        </if>
+        <if test="targetLang != null and targetLang != ''">
+            and target_lang = #{targetLang}
+        </if>
+        order by id desc
+    </select>
+
+    <!-- 统计总时长 -->
+    <select id="sumDuration" resultType="java.lang.Long">
+        select coalesce(sum(duration_seconds), 0)
+        from asr_session
+    </select>
+
+</mapper>
+

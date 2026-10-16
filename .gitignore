@@ -1,0 +1,16 @@
+# 编辑器
+.cursor/
+.vscode/
+.idea/
+*.iml
+
+# Vite 临时文件
+*.timestamp-*.mjs
+
+# 日志
+*.log
+log/
+
+# 系统
+.DS_Store
+Thumbs.db

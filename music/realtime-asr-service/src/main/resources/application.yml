@@ -1,0 +1,101 @@
+server:
+  port: 18006
+
+feign:
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
+
+spring:
+  application:
+    name: realtime-asr-service
+  config:
+    import: "optional:nacos:realtime-asr-service.yml"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: music
+      config:
+        server-addr: localhost:8848
+        namespace: music
+        file-extension: yml
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+        port: 8719
+      http-method-specify: true # 开启请求方式前缀
+  datasource:
+    url: jdbc:mysql://localhost:3306/kk-realtime-asr?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: your-mysql-password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+  main:
+    allow-circular-references: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+logging:
+  level:
+    com.music.asr.mapper: trace
+    # Feign 日志记录器配置（配合 DefaultFeignConfig 使用）
+    FeignRequestLogger: info
+
+# 阿里云 NLS 文件转写配置（与 audio-service 保持一致；用于获取 token/复用账号体系）
+nls:
+  filetrans:
+    accessKeyId: your-aliyun-access-key-id
+    accessKeySecret: your-aliyun-access-key-secret
+    regionId: cn-shanghai
+    endpointName: cn-shanghai
+    product: nls-filetrans
+    domain: filetrans.cn-shanghai.aliyuncs.com
+    version: 2018-08-17
+    taskVersion: 4.0
+    callback: https://your-ngrok-domain.ngrok-free.dev/filetrans/callback
+  # 实时语音识别配置
+  # AppKey 通过 AsrLangEnum 枚举自动获取，每个语言对应一个 AppKey
+  realtime:
+    # 是否返回中间识别结果（实时识别过程中的断句结果）
+    enableIntermediateResult: true
+    enablePunctuation: true
+    enableITN: true
+    maxSentenceSilence: 800
+  # 语音合成配置
+  tts:
+    # 是否启用语音合成
+    enabled: true
+    # 默认发音人
+    voice: zhiqing
+    # 语速 -500~500
+    speechRate: 0
+    # 语调 -500~500
+    pitchRate: 0
+    # 音量 0~100
+    volume: 50
+    # 音频格式 wav/mp3
+    format: wav
+    # 采样率 8000/16000
+    sampleRate: 16000
+    # 音频输出根目录
+    output-path: E:\NO 4\KK_pattern\tts
+    # 原文最终音频文件名（不含扩展名）
+    original-audio-file-name: original_audio
+    # 翻译最终音频文件名（不含扩展名）
+    translated-audio-file-name: translated_audio
+
+# 翻译服务配置（百度翻译 API）
+# 申请地址：https://fanyi-api.baidu.com/
+translate:
+  baidu:
+    appId: your-baidu-fanyi-appid
+    secretKey: your-baidu-fanyi-secret
+    # 默认源语言（auto 表示自动检测）
+    from: auto
+    # 默认目标语言
+    to: en

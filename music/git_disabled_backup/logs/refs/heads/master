@@ -1,0 +1,33 @@
+0000000000000000000000000000000000000000 867f53934cb6b7d25d977ee4f86073ded1464271 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734011987 +0800	commit (initial): 5.1 新建springboor项目，maven父子结构
+867f53934cb6b7d25d977ee4f86073ded1464271 b3b668f9508be327107a1fc745e74b4da958f038 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734015064 +0800	commit: 5.4 新建测试接口，加启动类日志
+b3b668f9508be327107a1fc745e74b4da958f038 ef17271c451f71e40c1305a4f342a69c1d514853 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734022578 +0800	commit: 5.5 添加LogAspect，管理Aop,打印日志
+ef17271c451f71e40c1305a4f342a69c1d514853 db20dfe0bab82cb949abd6520bfc3ed62110c8ef KK <14845967+kk_grapes@user.noreply.gitee.com> 1734023988 +0800	commit: 5.6 项目初始化配置,增加logback配置文件
+db20dfe0bab82cb949abd6520bfc3ed62110c8ef 7a3286cbfe3b075bb3f3bfcd093940f320be5690 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734101032 +0800	commit: 5.9 集成Mybatis持久层框架，实现Java代码与数据库的对接
+7a3286cbfe3b075bb3f3bfcd093940f320be5690 694c91104b29314a5c2a0275f51f556adc3f0458 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734102551 +0800	commit: 5.10 新增generator模块，作为代码生成器
+694c91104b29314a5c2a0275f51f556adc3f0458 fff638480858799a1b2a1fcb60bad1dd1220c3f3 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734104651 +0800	commit: 5.10 集成Mybatis官方生成器，免去重复的编写持久层代码
+fff638480858799a1b2a1fcb60bad1dd1220c3f3 7e634fc23e439b64c5259bb63746fb77dbc2967f KK <14845967+kk_grapes@user.noreply.gitee.com> 1734106836 +0800	commit: 5.11 Mybatis生成器生成的Example类的讲解
+7e634fc23e439b64c5259bb63746fb77dbc2967f c4b178b567b2709631567fb3613bcae28e9d385a KK <14845967+kk_grapes@user.noreply.gitee.com> 1734109483 +0800	commit: 5-12 封装请求参数和返回结果，让前后端数据对接更规范
+c4b178b567b2709631567fb3613bcae28e9d385a 1bfbaf7ae455daa64a0f71fe9ab82909099cbbee KK <14845967+kk_grapes@user.noreply.gitee.com> 1734111468 +0800	commit: 5-13 为项目增加统一异常处理，规范处理所有异常
+1bfbaf7ae455daa64a0f71fe9ab82909099cbbee 8bf0bc4ae2625ea230174c24b8eb539db6b43bdc KK <14845967+kk_grapes@user.noreply.gitee.com> 1734246465 +0800	commit: 5-14 使用自定义异常处理异常业务，区分业务异常与系统异常
+8bf0bc4ae2625ea230174c24b8eb539db6b43bdc 91284dfe396e1358148681c330c088caf9191d45 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734247601 +0800	commit: 5-15 集成校验框架Validation，让参数校验更容易
+91284dfe396e1358148681c330c088caf9191d45 e06880ee83000edbcb0eebab956e968eaca3101d KK <14845967+kk_grapes@user.noreply.gitee.com> 1734248388 +0800	commit: 5-16 利用雪花算法生成分布式ID，用于生成日志跟踪号
+e06880ee83000edbcb0eebab956e968eaca3101d 1392ced2391315d3504791b4529f514ec00c9216 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734275964 +0800	commit: 6.7 后端增加配置，允许跨域
+1392ced2391315d3504791b4529f514ec00c9216 db6188ca1152c2b8e20ed152982d9a8636aefe05 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734430177 +0800	commit: 7-5 生成验证码枚举类，同时使用代码生成器生成代码
+db6188ca1152c2b8e20ed152982d9a8636aefe05 92bc0c3b481c74a98c075e4015622e63ee775184 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734433390 +0800	commit: 7-6 增加发送注册验证码接口，保存数据库
+92bc0c3b481c74a98c075e4015622e63ee775184 a1a971a21d66ae3c95994b223732ea56473e4c6d KK <14845967+kk_grapes@user.noreply.gitee.com> 1734443944 +0800	commit: 7-7 增加校验是否频繁发送短信，避免短信攻击
+a1a971a21d66ae3c95994b223732ea56473e4c6d 4ab4faf7cbd9a3104984e677c2d4db95fa8fe397 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734457780 +0800	commit: 7-9 对接阿里云短信服务，真实发送短信
+4ab4faf7cbd9a3104984e677c2d4db95fa8fe397 457fd23d77f0aef034d6f28d42cdbb71d393ec03 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735309225 +0800	commit: 7-10 详解数据库会员表设计，用于存放所有的会员信息
+457fd23d77f0aef034d6f28d42cdbb71d393ec03 d2e1a779d52844629219f8699d779149f85ed828 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735310389 +0800	commit: 7-11 发送验证码接口增加校验必须是没注册过的手机号
+d2e1a779d52844629219f8699d779149f85ed828 5f52dca3cabec2c99c4c12208564ec91a592f85a KK <14845967+kk_grapes@user.noreply.gitee.com> 1735312352 +0800	commit: 7-12 增加注册接口，完成基本功能
+5f52dca3cabec2c99c4c12208564ec91a592f85a d5f42e28a0d77e79d3132ea57135ee91fa627eec KK <14845967+kk_grapes@user.noreply.gitee.com> 1735315561 +0800	commit: 7-13 注册接口增加校验短信验证码功能
+d5f42e28a0d77e79d3132ea57135ee91fa627eec 3806637bdd44e02ad5ed7891bb664bf00066a0d4 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735463238 +0800	commit: 7-18 增加图片验证码功能，防止机器人短信攻击
+3806637bdd44e02ad5ed7891bb664bf00066a0d4 c6527dd9e9d08776246b0c21d257584196d3699a KK <14845967+kk_grapes@user.noreply.gitee.com> 1735493054 +0800	commit: 8-3 登录后生成登录标识JWT
+c6527dd9e9d08776246b0c21d257584196d3699a beda2ab0f27f5facde91f406d9358cf32611352d KK <14845967+kk_grapes@user.noreply.gitee.com> 1735494312 +0800	commit: 8-5 添加登录功能增加图片验证码校验，防机器人
+beda2ab0f27f5facde91f406d9358cf32611352d ed078f858c82a04223f7b96136ca49f673922387 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735546560 +0800	commit: 8-8 增加发送重置密码短信接口
+ed078f858c82a04223f7b96136ca49f673922387 5231c4a131e16f66113a0d47e13811f8ce0b4052 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735547228 +0800	commit: 8-9 增加重置密码接口
+5231c4a131e16f66113a0d47e13811f8ce0b4052 9b3bccec9c044c2f6d8f5dfd2b53ded6e3d0b34d KK <14845967+kk_grapes@user.noreply.gitee.com> 1736511652 +0800	commit: 阿里云视频点播服务API接口对接
+9b3bccec9c044c2f6d8f5dfd2b53ded6e3d0b34d 929b17c54abe8a80e5ccb2303a3b6acdab01316b KK <14845967+kk_grapes@user.noreply.gitee.com> 1736772846 +0800	commit: 10-1 详解语音识别表设计，用于存放要做语音识别的文件信息
+929b17c54abe8a80e5ccb2303a3b6acdab01316b 2c4fd30cfe2610260404dd6b0f0042ca7cafa71b KK <14845967+kk_grapes@user.noreply.gitee.com> 1747661273 +0800	commit: 11-16 支付成功后修改订单状态和语音识别状态
+2c4fd30cfe2610260404dd6b0f0042ca7cafa71b f7069b064f98ea649ded7f3a3e84b2bee3c9ec2d KK <14845967+kk_grapes@user.noreply.gitee.com> 1748098428 +0800	commit: 13-9 实现下载字幕和下载纯文本功能
+f7069b064f98ea649ded7f3a3e84b2bee3c9ec2d 7a35bd65e35d2f75c4e1645037fe69989119980b KK <14845967+kk_grapes@user.noreply.gitee.com> 1748098448 +0800	commit: 13-9 实现下载字幕和下载纯文本功能
+7a35bd65e35d2f75c4e1645037fe69989119980b 58f3cda660b3f6df32120c47373f39052139233f KK <14845967+kk_grapes@user.noreply.gitee.com> 1748415430 +0800	commit: 完成项目

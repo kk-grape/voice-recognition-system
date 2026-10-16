@@ -1,0 +1,74 @@
+0000000000000000000000000000000000000000 867f53934cb6b7d25d977ee4f86073ded1464271 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734011987 +0800	commit (initial): 5.1 新建springboor项目，maven父子结构
+867f53934cb6b7d25d977ee4f86073ded1464271 b3b668f9508be327107a1fc745e74b4da958f038 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734015064 +0800	commit: 5.4 新建测试接口，加启动类日志
+b3b668f9508be327107a1fc745e74b4da958f038 ef17271c451f71e40c1305a4f342a69c1d514853 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734022578 +0800	commit: 5.5 添加LogAspect，管理Aop,打印日志
+ef17271c451f71e40c1305a4f342a69c1d514853 db20dfe0bab82cb949abd6520bfc3ed62110c8ef KK <14845967+kk_grapes@user.noreply.gitee.com> 1734023988 +0800	commit: 5.6 项目初始化配置,增加logback配置文件
+db20dfe0bab82cb949abd6520bfc3ed62110c8ef 7a3286cbfe3b075bb3f3bfcd093940f320be5690 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734101032 +0800	commit: 5.9 集成Mybatis持久层框架，实现Java代码与数据库的对接
+7a3286cbfe3b075bb3f3bfcd093940f320be5690 694c91104b29314a5c2a0275f51f556adc3f0458 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734102551 +0800	commit: 5.10 新增generator模块，作为代码生成器
+694c91104b29314a5c2a0275f51f556adc3f0458 fff638480858799a1b2a1fcb60bad1dd1220c3f3 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734104651 +0800	commit: 5.10 集成Mybatis官方生成器，免去重复的编写持久层代码
+fff638480858799a1b2a1fcb60bad1dd1220c3f3 7e634fc23e439b64c5259bb63746fb77dbc2967f KK <14845967+kk_grapes@user.noreply.gitee.com> 1734106836 +0800	commit: 5.11 Mybatis生成器生成的Example类的讲解
+7e634fc23e439b64c5259bb63746fb77dbc2967f c4b178b567b2709631567fb3613bcae28e9d385a KK <14845967+kk_grapes@user.noreply.gitee.com> 1734109483 +0800	commit: 5-12 封装请求参数和返回结果，让前后端数据对接更规范
+c4b178b567b2709631567fb3613bcae28e9d385a 1bfbaf7ae455daa64a0f71fe9ab82909099cbbee KK <14845967+kk_grapes@user.noreply.gitee.com> 1734111468 +0800	commit: 5-13 为项目增加统一异常处理，规范处理所有异常
+1bfbaf7ae455daa64a0f71fe9ab82909099cbbee 8bf0bc4ae2625ea230174c24b8eb539db6b43bdc KK <14845967+kk_grapes@user.noreply.gitee.com> 1734246465 +0800	commit: 5-14 使用自定义异常处理异常业务，区分业务异常与系统异常
+8bf0bc4ae2625ea230174c24b8eb539db6b43bdc 91284dfe396e1358148681c330c088caf9191d45 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734247601 +0800	commit: 5-15 集成校验框架Validation，让参数校验更容易
+91284dfe396e1358148681c330c088caf9191d45 e06880ee83000edbcb0eebab956e968eaca3101d KK <14845967+kk_grapes@user.noreply.gitee.com> 1734248388 +0800	commit: 5-16 利用雪花算法生成分布式ID，用于生成日志跟踪号
+e06880ee83000edbcb0eebab956e968eaca3101d 1392ced2391315d3504791b4529f514ec00c9216 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734275964 +0800	commit: 6.7 后端增加配置，允许跨域
+1392ced2391315d3504791b4529f514ec00c9216 db6188ca1152c2b8e20ed152982d9a8636aefe05 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734430177 +0800	commit: 7-5 生成验证码枚举类，同时使用代码生成器生成代码
+db6188ca1152c2b8e20ed152982d9a8636aefe05 92bc0c3b481c74a98c075e4015622e63ee775184 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734433390 +0800	commit: 7-6 增加发送注册验证码接口，保存数据库
+92bc0c3b481c74a98c075e4015622e63ee775184 a1a971a21d66ae3c95994b223732ea56473e4c6d KK <14845967+kk_grapes@user.noreply.gitee.com> 1734443944 +0800	commit: 7-7 增加校验是否频繁发送短信，避免短信攻击
+a1a971a21d66ae3c95994b223732ea56473e4c6d 4ab4faf7cbd9a3104984e677c2d4db95fa8fe397 KK <14845967+kk_grapes@user.noreply.gitee.com> 1734457780 +0800	commit: 7-9 对接阿里云短信服务，真实发送短信
+4ab4faf7cbd9a3104984e677c2d4db95fa8fe397 457fd23d77f0aef034d6f28d42cdbb71d393ec03 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735309225 +0800	commit: 7-10 详解数据库会员表设计，用于存放所有的会员信息
+457fd23d77f0aef034d6f28d42cdbb71d393ec03 d2e1a779d52844629219f8699d779149f85ed828 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735310389 +0800	commit: 7-11 发送验证码接口增加校验必须是没注册过的手机号
+d2e1a779d52844629219f8699d779149f85ed828 5f52dca3cabec2c99c4c12208564ec91a592f85a KK <14845967+kk_grapes@user.noreply.gitee.com> 1735312352 +0800	commit: 7-12 增加注册接口，完成基本功能
+5f52dca3cabec2c99c4c12208564ec91a592f85a d5f42e28a0d77e79d3132ea57135ee91fa627eec KK <14845967+kk_grapes@user.noreply.gitee.com> 1735315561 +0800	commit: 7-13 注册接口增加校验短信验证码功能
+d5f42e28a0d77e79d3132ea57135ee91fa627eec 3806637bdd44e02ad5ed7891bb664bf00066a0d4 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735463238 +0800	commit: 7-18 增加图片验证码功能，防止机器人短信攻击
+3806637bdd44e02ad5ed7891bb664bf00066a0d4 c6527dd9e9d08776246b0c21d257584196d3699a KK <14845967+kk_grapes@user.noreply.gitee.com> 1735493054 +0800	commit: 8-3 登录后生成登录标识JWT
+c6527dd9e9d08776246b0c21d257584196d3699a beda2ab0f27f5facde91f406d9358cf32611352d KK <14845967+kk_grapes@user.noreply.gitee.com> 1735494312 +0800	commit: 8-5 添加登录功能增加图片验证码校验，防机器人
+beda2ab0f27f5facde91f406d9358cf32611352d ed078f858c82a04223f7b96136ca49f673922387 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735546560 +0800	commit: 8-8 增加发送重置密码短信接口
+ed078f858c82a04223f7b96136ca49f673922387 5231c4a131e16f66113a0d47e13811f8ce0b4052 KK <14845967+kk_grapes@user.noreply.gitee.com> 1735547228 +0800	commit: 8-9 增加重置密码接口
+5231c4a131e16f66113a0d47e13811f8ce0b4052 9b3bccec9c044c2f6d8f5dfd2b53ded6e3d0b34d KK <14845967+kk_grapes@user.noreply.gitee.com> 1736511652 +0800	commit: 阿里云视频点播服务API接口对接
+9b3bccec9c044c2f6d8f5dfd2b53ded6e3d0b34d 929b17c54abe8a80e5ccb2303a3b6acdab01316b KK <14845967+kk_grapes@user.noreply.gitee.com> 1736772846 +0800	commit: 10-1 详解语音识别表设计，用于存放要做语音识别的文件信息
+929b17c54abe8a80e5ccb2303a3b6acdab01316b 2c4fd30cfe2610260404dd6b0f0042ca7cafa71b KK <14845967+kk_grapes@user.noreply.gitee.com> 1747661273 +0800	commit: 11-16 支付成功后修改订单状态和语音识别状态
+2c4fd30cfe2610260404dd6b0f0042ca7cafa71b f7069b064f98ea649ded7f3a3e84b2bee3c9ec2d KK <14845967+kk_grapes@user.noreply.gitee.com> 1748098428 +0800	commit: 13-9 实现下载字幕和下载纯文本功能
+f7069b064f98ea649ded7f3a3e84b2bee3c9ec2d 7a35bd65e35d2f75c4e1645037fe69989119980b KK <14845967+kk_grapes@user.noreply.gitee.com> 1748098448 +0800	commit: 13-9 实现下载字幕和下载纯文本功能
+7a35bd65e35d2f75c4e1645037fe69989119980b 58f3cda660b3f6df32120c47373f39052139233f KK <14845967+kk_grapes@user.noreply.gitee.com> 1748415430 +0800	commit: 完成项目
+58f3cda660b3f6df32120c47373f39052139233f 58f3cda660b3f6df32120c47373f39052139233f KK <14845967+kk_grapes@user.noreply.gitee.com> 1770367074 +0800	checkout: moving from master to KK-MUSIC
+58f3cda660b3f6df32120c47373f39052139233f 2a33509e108f7a2e97226d1fd57ddc3a1ddb8f82 KK <14845967+kk_grapes@user.noreply.gitee.com> 1770367165 +0800	commit: 完成项目-毕设开始-修改一些模块名
+2a33509e108f7a2e97226d1fd57ddc3a1ddb8f82 1643efe5061f1614424e6baec4e6d285fb86e5d1 KK <14845967+kk_grapes@user.noreply.gitee.com> 1771991653 +0800	commit: ^^^^^(格式转换模块)，添加 WebSocket 长连接配置和功能，
+1643efe5061f1614424e6baec4e6d285fb86e5d1 bf55a81d5c0b423ee252d986d2ed3abc16d487a5 KK <14845967+kk_grapes@user.noreply.gitee.com> 1771995227 +0800	commit: ^^^^^(格式转换模块)，提示文件格式转换能力
+bf55a81d5c0b423ee252d986d2ed3abc16d487a5 67d78662aff5e1d99de54ad73b15a8dca002e16c KK <14845967+kk_grapes@user.noreply.gitee.com> 1772022977 +0800	commit: ^^^^^(会员管理模块)，对功能进一步提升优化
+67d78662aff5e1d99de54ad73b15a8dca002e16c 8fd048943290da9db81779463f5be1260b2343a9 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772034533 +0800	commit: ^^^^^(会员管理模块)，添加会员信息管理功能
+8fd048943290da9db81779463f5be1260b2343a9 7777e131a67edb0c6a1e1fd1e3a2f4e3a19fa75b KK <14845967+kk_grapes@user.noreply.gitee.com> 1772086862 +0800	commit: ^^^^^(会员套餐模块)，简单实现会员套餐查看功能
+7777e131a67edb0c6a1e1fd1e3a2f4e3a19fa75b 2c15635ec14091a58edb5df3609e0528bd09a295 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772097345 +0800	commit: ^^^^^(会员模块)。重新封装了一个文件包Member,为后面拆微服务做准备
+2c15635ec14091a58edb5df3609e0528bd09a295 25d9aa849c14f7140947e75a4886656a35490137 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772100907 +0800	commit: ^^^^^(管理员模块)。重新封装了一个文件包admin,为后面拆微服务做准备
+25d9aa849c14f7140947e75a4886656a35490137 5e2f124606389ec3ea3a0d19a2f180f48c8984a3 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772199779 +0800	commit: ^^^^^(所有文件模块大整改，初步改成微服务的模样)。
+5e2f124606389ec3ea3a0d19a2f180f48c8984a3 cd38847cdc57254a45c4b242a5ca7dfda6e9146d KK <14845967+kk_grapes@user.noreply.gitee.com> 1772207612 +0800	commit: ^^^^^(一些模块的小整改，理清语音识别和订单和支付的逻辑关系，方便后续功能的扩展)。
+cd38847cdc57254a45c4b242a5ca7dfda6e9146d 7fdd2d03b120276eb7f137cf1a5c084fe3ea3bfe KK <14845967+kk_grapes@user.noreply.gitee.com> 1772275523 +0800	commit: ^^^^^!!!!!!(单体项目改成微服务的整改。还没改完，有些代码还是报错的，但是先提交，方便进一步下一步改查)
+7fdd2d03b120276eb7f137cf1a5c084fe3ea3bfe 8e4671b0567fe7ebfe41433071d3ec7496523c7e KK <14845967+kk_grapes@user.noreply.gitee.com> 1772279102 +0800	commit: ^^^^^!!!!!!(单体项目改成微服务的整改。还没改完，完成了所有远程调用的开发,但还有一些报错，还要整改)
+8e4671b0567fe7ebfe41433071d3ec7496523c7e 44b21f443c71761a2bee5f116c57ea9a21fd0040 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772281928 +0800	commit: ^^^^^!!!!!!(单体项目改成微服务的整改。还没改完，简单移了一下拦截器的位置,但还有一些报错，还要整改)
+44b21f443c71761a2bee5f116c57ea9a21fd0040 8682553f01ae0370d5345e8b9c644ecfdd7618f0 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772281955 +0800	commit (amend): ^^^^^!!!!!!(单体项目改成微服务的整改。还没改完，简单移了一下拦截器的位置,但还有一些报错，还要整改)
+8682553f01ae0370d5345e8b9c644ecfdd7618f0 5bdcc4f1809c7deadaaa5840b7fc3b96fd10963e KK <14845967+kk_grapes@user.noreply.gitee.com> 1772294982 +0800	commit: ^^^^^!!!!!!(单体项目改成微服务的整改。微服务全部启动成功，下一步进行功能测试)
+5bdcc4f1809c7deadaaa5840b7fc3b96fd10963e 84a299fc40eb0fe9a44ae75c276e1c70a104be5e KK <14845967+kk_grapes@user.noreply.gitee.com> 1772350625 +0800	commit: ^^^^^!!!!!!(单体项目改成微服务的整改。回调接口改路径，通过网关接收)
+84a299fc40eb0fe9a44ae75c276e1c70a104be5e c8f151a6af2ced3ccc2dc66edf12bc5eb6f716e8 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772351391 +0800	commit (amend): ^^^^^!!!!!!(单体项目改成微服务的整改。回调接口改路径，通过网关接收)
+c8f151a6af2ced3ccc2dc66edf12bc5eb6f716e8 02b15d71f8713e12445feb9150f08663242b52c3 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772351560 +0800	commit (amend): ^^^^^!!!!!!(单体项目改成微服务的整改。回调接口改路径，通过网关接收)
+02b15d71f8713e12445feb9150f08663242b52c3 3df0d876ef3ee8d2beba283006051d450f49f9a7 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772351569 +0800	commit (amend): ^^^^^!!!!!!(单体项目改成微服务的整改。回调接口改路径，通过网关接收)
+3df0d876ef3ee8d2beba283006051d450f49f9a7 f81f7cf88c1896a6bb5c9c09499d2e524dd78f41 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772366243 +0800	commit: ^^^^^(微服务运行)，之情的功能流程都能跑通，后续有其他bug会进行修复
+f81f7cf88c1896a6bb5c9c09499d2e524dd78f41 8ff33f073faa50b8abc872a00f7ee80dfb84b24e KK <14845967+kk_grapes@user.noreply.gitee.com> 1772380372 +0800	commit: ^^^^^(微服务运行)，支付宝支付完成之后，回到语音识别页面。
+8ff33f073faa50b8abc872a00f7ee80dfb84b24e 180bac423c346b1b69c9f88c85d1836e05e19124 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772536875 +0800	commit: ^^^^^(微服务运行)，添加了Sentinel流量控制 //把数据库里面的表原本从一个数据库分到了多个数据库里。添加seata需要的数据库
+180bac423c346b1b69c9f88c85d1836e05e19124 c9bfb1ba478bf3961ca8417a41e8b8e44d556ae8 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772975940 +0800	commit: ^^^^^(微服务运行)，添加seata全局事务管理
+c9bfb1ba478bf3961ca8417a41e8b8e44d556ae8 741349707c3fd9e76e58738c75356ba0d2826586 KK <14845967+kk_grapes@user.noreply.gitee.com> 1772989243 +0800	commit: ^^^^^(微服务运行)，添加了语音识别记录的列表查询功能，以及详情。添加的字幕修改功能。
+741349707c3fd9e76e58738c75356ba0d2826586 3262bcc2d3f3bbde4d6749294b177bcb5af383cc KK <14845967+kk_grapes@user.noreply.gitee.com> 1772989269 +0800	commit (amend): ^^^^^(微服务运行)，添加了语音识别记录的列表查询功能，以及详情。添加的字幕修改功能。
+3262bcc2d3f3bbde4d6749294b177bcb5af383cc cae8650b6f824943d393223090c414fbfd89848e KK <14845967+kk_grapes@user.noreply.gitee.com> 1772989310 +0800	commit (amend): ^^^^^(微服务新增功能)，添加了语音识别记录的列表查询功能，以及详情。添加的字幕修改功能。
+cae8650b6f824943d393223090c414fbfd89848e db7c1ffda630e86e089da91fd8dac306152c1ee2 KK <14845967+kk_grapes@user.noreply.gitee.com> 1773061962 +0800	commit: ^^^^^(微服务新增功能)，添加了语音识别语言种类
+db7c1ffda630e86e089da91fd8dac306152c1ee2 58f14f83fa14ee5a9288bd08f9283fbc91c06dad KK <14845967+kk_grapes@user.noreply.gitee.com> 1774168141 +0800	commit: ^^^^^(新增微服务)，语音助手：实时语音识别，语音合成，实时字幕导出
+58f14f83fa14ee5a9288bd08f9283fbc91c06dad 6531c1763b40eeb37d02e3a4a46c426767d7de62 KK <14845967+kk_grapes@user.noreply.gitee.com> 1774277483 +0800	commit (amend): ^^^^^(新增微服务)，语音助手：实时语音识别，语音合成，实时字幕导出
+6531c1763b40eeb37d02e3a4a46c426767d7de62 b0436dc736faec357f58ebcc629ad1ab736ddb88 KK <14845967+kk_grapes@user.noreply.gitee.com> 1774695415 +0800	commit: ^^^^^(新增微服务)，AI小助手，AI聊天，AI会议总结
+b0436dc736faec357f58ebcc629ad1ab736ddb88 9959c5d810960531b537b4090e5bf7ab19a8ad17 KK <14845967+kk_grapes@user.noreply.gitee.com> 1775745426 +0800	commit: ^^^^^(优化微服务)，优化了AI会议纪要和AI聊天小助手的一些逻辑。
+9959c5d810960531b537b4090e5bf7ab19a8ad17 83e3a734b27b7fbf9eadc138d08c6b5d3c64edc5 KK <14845967+kk_grapes@user.noreply.gitee.com> 1775803786 +0800	commit: ^^^^^(开发后台管理系统)，开发后台管理系统，还没运行，检查了一下admin-service和common模块代码逻辑上没什么问题就先提交。主要是新增功能和user的命名改为admin。
+83e3a734b27b7fbf9eadc138d08c6b5d3c64edc5 a8e8e40a7d9b2e35dd7fb6cd682d0e7e75735d4a KK <14845967+kk_grapes@user.noreply.gitee.com> 1775807151 +0800	commit (amend): ^^^^^(开发后台管理系统)，开发后台管理系统，还没运行，检查了一下admin-service和common模块代码逻辑上没什么问题就先提交。主要是新增功能和user的命名改为admin。
+a8e8e40a7d9b2e35dd7fb6cd682d0e7e75735d4a 086622e5f54c3a949953082ab053a774c03abaf0 KK <14845967+kk_grapes@user.noreply.gitee.com> 1775807301 +0800	commit: ^^^^^(开发后台管理系统)，检查了一下ai-assistant-service的代码没有什么问题。
+086622e5f54c3a949953082ab053a774c03abaf0 3b5647e73fe180cdc0a9def85c7c1deb24e9ac20 KK <14845967+kk_grapes@user.noreply.gitee.com> 1775808948 +0800	commit: ^^^^^(开发后台管理系统)，检查了一下语音识别，文件格式转化，会员管理模块的代码没有什么问题。
+3b5647e73fe180cdc0a9def85c7c1deb24e9ac20 c7794285e4a61d210fef944797ef23686d2d57de KK <14845967+kk_grapes@user.noreply.gitee.com> 1775811781 +0800	commit: ^^^^^(开发后台管理系统)，检查了所有的代码，没有什么问题。
+c7794285e4a61d210fef944797ef23686d2d57de 3eaa7e095365c96e1f31e40155d3aff31ad26ea4 KK <14845967+kk_grapes@user.noreply.gitee.com> 1775812152 +0800	commit (amend): ^^^^^(开发后台管理系统)，检查了所有的代码，没有什么问题。
+3eaa7e095365c96e1f31e40155d3aff31ad26ea4 b90ab13f749ce0782d57287b71fc70f9aef65aad KK <14845967+kk_grapes@user.noreply.gitee.com> 1775837412 +0800	commit (amend): ^^^^^(开发后台管理系统)，检查了所有的代码，没有什么问题。
+b90ab13f749ce0782d57287b71fc70f9aef65aad 75918bb7b3ee1d0ffbaa051452c233a4cb12570b KK <14845967+kk_grapes@user.noreply.gitee.com> 1775845225 +0800	commit (amend): ^^^^^(开发后台管理系统)，检查了所有的代码，没有什么问题。
+75918bb7b3ee1d0ffbaa051452c233a4cb12570b 2585122fc8d1eed21ead50be5e6c70cde0b80ad2 KK <14845967+kk_grapes@user.noreply.gitee.com> 1775850747 +0800	commit (amend): ^^^^^(开发后台管理系统)，检查了所有的代码，没有什么问题。

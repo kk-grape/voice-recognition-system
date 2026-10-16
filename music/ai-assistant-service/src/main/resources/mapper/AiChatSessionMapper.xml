@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.music.ai.mapper.AiChatSessionMapper">
+
+    <resultMap id="BaseResultMap" type="com.music.ai.domain.AiChatSession">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="session_uuid" property="sessionUuid"/>
+        <result column="session_title" property="sessionTitle"/>
+        <result column="status" property="status"/>
+        <result column="message_count" property="messageCount"/>
+        <result column="last_message" property="lastMessage"/>
+        <result column="last_message_at" property="lastMessageAt"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.music.ai.domain.AiChatSession">
+        INSERT INTO ai_chat_session (id, user_id, session_uuid, session_title, status, message_count, last_message, last_message_at, created_at, updated_at)
+        VALUES (#{id}, #{userId}, #{sessionUuid}, #{sessionTitle}, #{status}, #{messageCount}, #{lastMessage}, #{lastMessageAt}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <select id="selectByUuid" resultMap="BaseResultMap">
+        SELECT * FROM ai_chat_session WHERE session_uuid = #{sessionUuid}
+    </select>
+
+    <select id="selectRecentByUserId" resultMap="BaseResultMap">
+        SELECT * FROM ai_chat_session
+        WHERE user_id = #{userId} AND status = 1
+        ORDER BY last_message_at DESC
+        LIMIT 1
+    </select>
+
+    <select id="selectListByUserId" resultMap="BaseResultMap">
+        SELECT * FROM ai_chat_session
+        WHERE user_id = #{userId} AND status = 1
+        ORDER BY last_message_at DESC
+    </select>
+
+    <update id="updateLastMessage">
+        UPDATE ai_chat_session
+        SET last_message = #{lastMessage},
+            last_message_at = #{lastMessageAt},
+            message_count = #{messageCount},
+            updated_at = NOW()
+        WHERE id = #{sessionId}
+    </update>
+
+    <update id="updateStatus">
+        UPDATE ai_chat_session
+        SET status = #{status}, updated_at = NOW()
+        WHERE id = #{sessionId}
+    </update>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        SELECT * FROM ai_chat_session WHERE id = #{id}
+    </select>
+
+    <select id="selectAllList" resultMap="BaseResultMap">
+        SELECT * FROM ai_chat_session ORDER BY id DESC
+    </select>
+
+    <select id="countAll" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM ai_chat_session
+    </select>
+
+    <select id="countByStatus" resultType="com.music.ai.admin.resp.ChatSessionCountResp">
+        SELECT status, COUNT(*) as count
+        FROM ai_chat_session
+        GROUP BY status
+    </select>
+
+    <select id="selectListByCondition" resultMap="BaseResultMap">
+        SELECT * FROM ai_chat_session
+        WHERE 1=1
+        <if test="userId != null">
+            AND user_id = #{userId}
+        </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+        <if test="title != null and title != ''">
+            AND session_title LIKE CONCAT('%', #{title}, '%')
+        </if>
+        ORDER BY id DESC
+    </select>
+
+</mapper>

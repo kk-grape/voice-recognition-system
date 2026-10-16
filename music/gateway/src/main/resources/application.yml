@@ -1,0 +1,204 @@
+server:
+  port: 18000
+
+spring:
+  application:
+    name: gateway-service
+  config:
+    import: "optional:nacos:gateway-service.yml"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: music
+      config:
+        server-addr: localhost:8848
+        namespace: music
+        file-extension: yml
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        # ==========================================
+        # 管理员接口路由 - 分布到各微服务的 admin 包
+        # ==========================================
+        # 管理员接口 - 会员管理 /admin/member/** -> member-service
+        - id: admin-member-service
+          uri: lb://member-service
+          predicates:
+            - Path=/admin/member/**
+          filters:
+            - StripPrefix=0
+        # 管理员接口 - 订单管理 /admin/order/** -> order-service
+        - id: admin-order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/admin/order/**
+          filters:
+            - StripPrefix=0
+        # 管理员接口 - 音频识别管理 /admin/audio/** -> audio-service
+        - id: admin-audio-service
+          uri: lb://audio-service
+          predicates:
+            - Path=/admin/audio/**
+          filters:
+            - StripPrefix=0
+        # 管理员接口 - 文件格式管理 /admin/fileformat/** -> fileformat-service
+        - id: admin-fileformat-service
+          uri: lb://fileformat-service
+          predicates:
+            - Path=/admin/fileformat/**
+          filters:
+            - StripPrefix=0
+        # 管理员接口 - 实时识别管理 /admin/realtime/** -> realtime-asr-service
+        - id: admin-realtime-asr-service
+          uri: lb://realtime-asr-service
+          predicates:
+            - Path=/admin/realtime/**
+          filters:
+            - StripPrefix=0
+        # 管理员接口 - AI助手管理 /admin/ai/** -> ai-assistant-service
+        - id: admin-ai-assistant-service
+          uri: lb://ai-assistant-service
+          predicates:
+            - Path=/admin/ai/**
+          filters:
+            - StripPrefix=0
+        # ==========================================
+        # 用户端接口路由
+        # ==========================================
+        # 管理员服务 - 路由到 /admin/** (系统管理员登录)----------------------------------------
+        - id: admin-service
+          uri: lb://admin-service
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=0  # 不剥离前缀，保持 /admin/** 路径
+        # 会员服务 - /web/member/**--------------------------------------------
+        - id: member-service-member
+          uri: lb://member-service
+          predicates:
+            - Path=/web/member/**
+          filters:
+            - StripPrefix=0
+        # 会员服务 - /web/sms-code/**
+        - id: member-service-sms
+          uri: lb://member-service
+          predicates:
+            - Path=/web/sms-code/**
+          filters:
+            - StripPrefix=0
+        # 会员服务 - /web/kaptcha/**
+        - id: member-service-kaptcha
+          uri: lb://member-service
+          predicates:
+            - Path=/web/kaptcha/**
+          filters:
+            - StripPrefix=0
+        # 会员服务 - /web/common/**
+        - id: member-service-common
+          uri: lb://member-service
+          predicates:
+            - Path=/web/common/**
+          filters:
+            - StripPrefix=0
+        # 订单服务 - 路由到 /web/order-info/**----------------------------------
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/web/order-info/**
+          filters:
+            - StripPrefix=0
+        # 订单服务 - 支付宝回调接口 /alipay/callback     >>>
+        - id: order-service-alipay-callback
+          uri: lb://order-service
+          predicates:
+            - Path=/alipay/callback
+          filters:
+            - StripPrefix=0
+        # 音频服务 - /web/filetrans/**-----------------------------------------
+        - id: audio-service-filetrans
+          uri: lb://audio-service
+          predicates:
+            - Path=/web/filetrans/**
+          filters:
+            - StripPrefix=0
+        # 音频服务 - /web/filetrans-subtitle/**
+        - id: audio-service-subtitle
+          uri: lb://audio-service
+          predicates:
+            - Path=/web/filetrans-subtitle/**
+          filters:
+            - StripPrefix=0
+        # 音频服务 - /web/vod/**
+        - id: audio-service-vod
+          uri: lb://audio-service
+          predicates:
+            - Path=/web/vod/**
+          filters:
+            - StripPrefix=0
+        # 音频服务 - 阿里云语音识别回调接口 /filetrans/callback     >>>
+        - id: audio-service-filetrans-callback
+          uri: lb://audio-service
+          predicates:
+            - Path=/filetrans/callback
+          filters:
+            - StripPrefix=0
+        # 文件格式服务 - 路由到 /web/fileformat/**------------------------------------
+        - id: fileformat-service
+          uri: lb://fileformat-service
+          predicates:
+            - Path=/web/fileformat/**
+          filters:
+            - StripPrefix=0
+        # 文件格式服务 - WebSocket路由 /ws/conversion
+        - id: fileformat-service-websocket
+          uri: lb://fileformat-service
+          predicates:
+            - Path=/ws/conversion
+          filters:
+            - StripPrefix=0
+        # 实时语音识别 - WebSocket 路由 /ws/asr
+        - id: realtime-asr-service-websocket
+          uri: lb://realtime-asr-service
+          predicates:
+            - Path=/ws/asr
+          filters:
+            - StripPrefix=0
+        # 实时语音识别 - TTS语音合成 /web/tts/**
+        - id: realtime-asr-service-tts
+          uri: lb://realtime-asr-service
+          predicates:
+            - Path=/web/tts/**
+          filters:
+            - StripPrefix=0
+        # 实时语音识别 - 字幕相关 /web/asr-subtitle/**
+        - id: realtime-asr-service-asr-subtitle
+          uri: lb://realtime-asr-service
+          predicates:
+            - Path=/web/asr-subtitle/**
+          filters:
+            - StripPrefix=0
+        # AI 助手服务 - /web/ai/**
+        - id: ai-assistant-service
+          uri: lb://ai-assistant-service
+          predicates:
+            - Path=/web/ai/**
+          filters:
+            - StripPrefix=0
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+  main:
+    web-application-type: reactive
+    allow-circular-references: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

@@ -1,0 +1,73 @@
+server:
+  port: 18005
+
+feign:
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
+
+spring:
+  application:
+    name: fileformat-service
+  config:
+    import: "optional:nacos:fileformat-service.yml"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: music
+      config:
+        server-addr: localhost:8848
+        namespace: music
+        file-extension: yml
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+        port: 8719
+      http-method-specify: true # 开启请求方式前缀
+  datasource:
+    url: jdbc:mysql://localhost:3306/kk-fileformat?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: your-mysql-password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+  main:
+    allow-circular-references: true
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+logging:
+  level:
+    com.music.nls.fileformat.mapper: trace
+
+# 音频文件目录（由原单体应用迁移而来）
+music:
+  dir: "E:\\NO 4\\KK_pattern\\music\\"
+
+seata:
+  tx-service-group: music-tx-group
+  service:
+    vgroup-mapping:
+      music-tx-group: default
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: music
+      group: SEATA_GROUP
+      application: seata-server
+  config:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: music
+      group: SEATA_GROUP
+  data-source-proxy-mode: AT

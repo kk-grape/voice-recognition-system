@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.music.ai.mapper.AiMeetingChatSessionMapper">
+
+    <resultMap id="BaseResultMap" type="com.music.ai.domain.AiMeetingChatSession">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="asr_session_id" property="asrSessionId"/>
+        <result column="status" property="status"/>
+        <result column="message_count" property="messageCount"/>
+        <result column="last_message" property="lastMessage"/>
+        <result column="last_message_at" property="lastMessageAt"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.music.ai.domain.AiMeetingChatSession">
+        INSERT INTO ai_meeting_chat_session (id, user_id, asr_session_id, status, message_count, last_message, last_message_at, created_at, updated_at)
+        VALUES (#{id}, #{userId}, #{asrSessionId}, #{status}, #{messageCount}, #{lastMessage}, #{lastMessageAt}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <select id="selectByAsrSessionId" resultMap="BaseResultMap">
+        SELECT * FROM ai_meeting_chat_session WHERE asr_session_id = #{asrSessionId}
+    </select>
+
+    <update id="updateLastMessage">
+        UPDATE ai_meeting_chat_session
+        SET last_message = #{lastMessage},
+            last_message_at = #{lastMessageAt},
+            message_count = #{messageCount},
+            updated_at = NOW()
+        WHERE id = #{sessionId}
+    </update>
+
+    <update id="updateStatus">
+        UPDATE ai_meeting_chat_session
+        SET status = #{status}, updated_at = NOW()
+        WHERE id = #{sessionId}
+    </update>
+
+</mapper>

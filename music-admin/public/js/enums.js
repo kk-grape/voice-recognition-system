@@ -1,0 +1,7 @@
+FILETRANS_LANG={LANG0:{code:"dxksRAMqw2qWxxOG",desc:"普通话"},LANG1:{code:"kH1y8ns3kk8lXxr0",desc:"英语"},LANG2:{code:"J8hJxw8XQWUzRVkA",desc:"中英混合"},LANG3:{code:"yaXsjWbzmAaiHiGD",desc:"日语"},LANG4:{code:"e5us7Q2KNRkJihfK",desc:"泰语"},LANG5:{code:"fguvKlRZkpVXZY3W",desc:"韩语"},LANG6:{code:"v6gsHNemSH95SGGX",desc:"粤语"},LANG7:{code:"U8r9efQeREfJkg15",desc:"四川话"},LANG8:{code:"zTw21e2aAyJzxrSp",desc:"河南话"}};
+FILETRANS_STATUS={INIT:{code:"I",desc:"初始"},SUBTITLE_INIT:{code:"SI",desc:"待生成字幕"},SUBTITLE_PENDING:{code:"SP",desc:"生成字幕中"},SUBTITLE_SUCCESS:{code:"SS",desc:"生成字幕成功"},SUBTITLE_FAILURE:{code:"SF",desc:"生成字幕失败"},DELETED:{code:"D",desc:"失效"}};
+FILETRANS_PAY_STATUS={I:{code:"I",desc:"未支付"},P:{code:"P",desc:"处理中"},S:{code:"S",desc:"支付成功"},F:{code:"F",desc:"支付失败"}};
+
+FILETRANS_LANG_ARRAY=[{code:"dxksRAMqw2qWxxOG",desc:"普通话"},{code:"kH1y8ns3kk8lXxr0",desc:"英语"},{code:"J8hJxw8XQWUzRVkA",desc:"中英混合"},{code:"yaXsjWbzmAaiHiGD",desc:"日语"},{code:"e5us7Q2KNRkJihfK",desc:"泰语"},{code:"fguvKlRZkpVXZY3W",desc:"韩语"},{code:"v6gsHNemSH95SGGX",desc:"粤语"},{code:"U8r9efQeREfJkg15",desc:"四川话"},{code:"zTw21e2aAyJzxrSp",desc:"河南话"}];
+FILETRANS_STATUS_ARRAY=[{code:"I",desc:"初始"},{code:"SI",desc:"待生成字幕"},{code:"SP",desc:"生成字幕中"},{code:"SS",desc:"生成字幕成功"},{code:"SF",desc:"生成字幕失败"},{code:"D",desc:"失效"}];
+FILETRANS_PAY_STATUS_ARRAY=[{code:"I",desc:"未支付"},{code:"P",desc:"处理中"},{code:"S",desc:"支付成功"},{code:"F",desc:"支付失败"}];

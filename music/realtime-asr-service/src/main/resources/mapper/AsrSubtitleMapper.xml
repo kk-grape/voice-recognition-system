@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.music.asr.mapper.AsrSubtitleMapper">
+
+    <resultMap id="BaseResultMap" type="com.music.asr.domain.AsrSubtitle">
+        <id column="id" property="id"/>
+        <result column="session_id" property="sessionId"/>
+        <result column="sentence_index" property="sentenceIndex"/>
+        <result column="original_text" property="originalText"/>
+        <result column="translated_text" property="translatedText"/>
+        <result column="confidence" property="confidence"/>
+        <result column="start_time_ms" property="startTimeMs"/>
+        <result column="end_time_ms" property="endTimeMs"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, session_id, sentence_index, original_text, translated_text,
+        confidence, start_time_ms, end_time_ms, created_at, updated_at
+    </sql>
+
+    <insert id="insert" parameterType="com.music.asr.domain.AsrSubtitle">
+        insert into asr_subtitle (
+            id, session_id, sentence_index, original_text, translated_text,
+            confidence, start_time_ms, end_time_ms, created_at, updated_at
+        ) values (
+            #{id}, #{sessionId}, #{sentenceIndex}, #{originalText}, #{translatedText},
+            #{confidence}, #{startTimeMs}, #{endTimeMs}, #{createdAt}, #{updatedAt}
+        )
+    </insert>
+
+    <select id="selectBySessionId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from asr_subtitle
+        where session_id = #{sessionId}
+        order by sentence_index asc
+    </select>
+
+</mapper>
+

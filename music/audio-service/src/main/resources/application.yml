@@ -1,0 +1,107 @@
+server:
+  port: 18004
+
+feign:
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
+
+spring:
+  application:
+    name: audio-service
+  config:
+    import: "optional:nacos:audio-service.yml"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: music
+      config:
+        server-addr: localhost:8848
+        namespace: music
+        file-extension: yml
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+        port: 8719
+      http-method-specify: true # 开启请求方式前缀
+  datasource:
+    url: jdbc:mysql://localhost:3306/kk-audio?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: your-mysql-password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+  main:
+    allow-circular-references: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+logging:
+  level:
+    com.music.nls.audio.mapper: trace
+    # Feign 日志记录器配置（配合 DefaultFeignConfig 使用）
+    FeignRequestLogger: info
+
+# 临时文件和音频文件目录
+temp:
+  dir: "E:\\NO 3\\KK_pattern\\subtitle\\"
+music:
+  dir: "E:\\NO 4\\KK_pattern\\music\\"
+
+# 音频转换价格元/分钟
+filetrans:
+  audio:
+    price: 0.2
+
+# 阿里云 VOD 访问凭证（由原单体应用 business/application.properties 迁移而来）
+vod:
+  accessKeyId: your-aliyun-access-key-id
+  accessKeySecret: your-aliyun-access-key-secret
+
+# 阿里云 NLS 文件转写配置（由原单体应用 business/application.properties 迁移而来）
+nls:
+  filetrans:
+    accessKeyId: your-aliyun-access-key-id
+    accessKeySecret: your-aliyun-access-key-secret
+    regionId: cn-shanghai
+    endpointName: cn-shanghai
+    product: nls-filetrans
+    domain: filetrans.cn-shanghai.aliyuncs.com
+    version: 2018-08-17
+    taskVersion: 4.0
+    callback: https://your-ngrok-domain.ngrok-free.dev/filetrans/callback
+
+# 支付宝沙箱支付配置（由原单体应用 business/application.properties 迁移而来）
+alipay:
+  gatewayHttpsHost: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+  gatewayHost: openapi-sandbox.dl.alipaydev.com
+  appId: 2021000148685654
+  merchantPrivateKey: your-alipay-merchant-private-key
+  alipayPublicKey: your-alipay-public-key
+  notifyUrl: https://your-ngrok-domain.ngrok-free.dev/alipay/callback
+  encryptKey: your-alipay-encrypt-key
+  returnUrl: http://localhost:3000/home/filetrans
+
+seata:
+  tx-service-group: music-tx-group
+  service:
+    vgroup-mapping:
+      music-tx-group: default
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: music
+      group: SEATA_GROUP
+      application: seata-server
+  config:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: music
+      group: SEATA_GROUP
+  data-source-proxy-mode: AT

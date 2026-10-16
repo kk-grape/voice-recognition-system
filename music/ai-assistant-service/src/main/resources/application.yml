@@ -1,0 +1,61 @@
+server:
+  port: 18007
+
+spring:
+  application:
+    name: ai-assistant-service
+  config:
+    import: "optional:nacos:ai-assistant-service.yml"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: music
+      config:
+        server-addr: localhost:8848
+        namespace: music
+        file-extension: yml
+  datasource:
+    url: jdbc:mysql://localhost:3306/kk-ai-assistant?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: your-mysql-password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  main:
+    allow-circular-references: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+logging:
+  level:
+    com.music.ai.mapper: trace
+    FeignRequestLogger: info
+
+# 通义千问 DashScope API 配置（需要替换为你的真实 Key）
+# 申请地址：https://bailian.console.aliyun.com/
+dashscope:
+  api-key: your-dashscope-api-key
+
+  # ---------- 模型配置 ----------
+  # AI 小助手对话模型（通用对话，推荐 qwen-plus）
+  chat-model: qwen-plus
+  # 会议纪要生成模型（超长上下文，推荐 qwen-long）
+  summary-model: qwen-long
+
+  # ---------- 上下文配置 ----------
+  # AI 小助手每次发给 AI 的历史消息条数（取最近的）
+  chat-max-context-messages: 10
+  # 通用上下文条数配置（预留）
+  max-context-messages: 10
+
+  # ---------- 输出长度配置 ----------
+  # AI 小助手每次最大输出 token 数（约等于 400~800 个汉字）
+  chat-max-tokens: 800
+  # 会议纪要每次最大输出 token 数
+  summary-max-tokens: 4000
+  # 会议纪要追问每次最大输出 token 数
+  meeting-chat-max-tokens: 4000
+
+  # ---------- 推理参数 ----------
+  # 模型推理温度（0~1，越高越随机/有创意，越低越稳定/确定）
+  temperature: 0.7
